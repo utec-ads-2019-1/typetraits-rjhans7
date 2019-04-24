@@ -11,13 +11,14 @@ class List {
       
     private:
         Node<T>* head;
-        Operation cmp; //Qué hace operation?
+        Operation cmp;
         int nodes;
               
     public:
         List() : head(nullptr), nodes(0) {};
 
-        bool find(T search, Node<T> **&pointer) {//Pointer pasado por referencia
+        bool find(T search, Node<T> **&pointer)
+        {
             pointer = &head;
             while(*pointer)
             {
@@ -35,7 +36,7 @@ class List {
             if (find(data, ptr))
                 return false;
             else{
-                newNode->next = *ptr; //*ptr ya está apuntando al siguiente
+                newNode->next = *ptr;
                 *ptr = newNode;
                 nodes++;
                 return true;
