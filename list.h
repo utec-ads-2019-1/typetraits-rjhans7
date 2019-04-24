@@ -6,7 +6,7 @@
 template <typename Tr>
 class List {     
     public:
-        typedef typename Tr::T T; //Esta parte igual!
+        typedef typename Tr::T T;
         typedef typename Tr::Operation Operation;
       
     private:
@@ -17,12 +17,12 @@ class List {
     public:
         List() : head(nullptr), nodes(0) {};
 
-        bool find(T search, Node<T> **&pointer) {//Pointer pasado por referencias
+        bool find(T search, Node<T> **&pointer) {//Pointer pasado por referencia
             pointer = &head;
             while(*pointer)
             {
                 if(cmp(search,(*pointer)->data))
-                    return (*pointer)->data == search; //Corregir
+                    return (*pointer)->data == search;
                 pointer = &((*pointer)->next);
             }
             return false;
