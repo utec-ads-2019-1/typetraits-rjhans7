@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "test/tester.h"
+#include "test/tester.cpp"
 
 using namespace std;
 

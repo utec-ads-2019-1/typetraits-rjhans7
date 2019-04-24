@@ -5,7 +5,7 @@
 #include <iostream>
 #include <assert.h>
 
-#include "../mock/mocker.h"
+#include "../mock/mocker.cpp"
 #include "../list.h"
 
 using namespace std;
@@ -23,7 +23,7 @@ using namespace std;
 #   define ASSERT(condition, message) do { } while (false)
 #endif
 
-#define NUMBER_OF_TESTS 1000
+#define NUMBER_OF_TESTS 1
 
 template <typename T>
 struct Greater {
