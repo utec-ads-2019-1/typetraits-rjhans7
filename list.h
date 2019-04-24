@@ -37,16 +37,22 @@ class List {
             else{
                 newNode->next = *ptr; //*ptr ya está apuntando al siguiente
                 *ptr = newNode;
+                nodes++;
+                return true;
             }
 
         }
              
         bool remove(T data) {
-            if (find(data)){
-                //Eliminar
-            }else{
+            Node <T> **ptr = nullptr;
+            if (find(data, ptr)){
+                Node<T> *temp = *ptr;
+                *ptr = (*ptr)->next;
+                delete temp;
+                nodes--;
+                return true;
+            }else
                 return false;
-            }
         }  
              
         int size() {
@@ -54,8 +60,25 @@ class List {
         }
 
         T operator[](int index) {
-
+            if ((index < 0) | (index >= nodes))
+                throw out_of_range("Out of range!");
+            else{
+                Node <T>** ptr = &head;
+                for (int i = 0; i < index; i++)
+                    ptr = &((*ptr)->next);
+                return (*ptr)->data;
+            }
         }
+        void print(){
+            Node <T>** ptr = &head;
+            for (int i= 0; i < nodes; i++){
+                if ( i%6==0)
+                    cout << endl;
+                cout << (*ptr)->data << " - ";
+                ptr = &((*ptr)->next);
+            }
+
+        };
 
         ~List() {
             head->killSelf();
